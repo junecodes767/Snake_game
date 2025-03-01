@@ -18,7 +18,10 @@ class Snake:
     def create_snake(self):
         #loop that places the snake at the beginnning coordinates
         for position in STARTING_COORDINATES:
-            #creates a new turtle aka snake square shaped
+            self.add_segment(position)
+            
+    def add_segment(self,position):
+       #creates a new turtle aka snake square shaped
             new_segment = Turtle(shape="square")
             #modifies the segements color
             new_segment.color("red")
@@ -27,7 +30,10 @@ class Snake:
             #moves segment to the position stated aboce
             new_segment.goto(position)
             #moves the segment to the segment list
-            self.segment.append(new_segment)
+            self.segment.append(new_segment) 
+        
+    def extend(self):
+        self.add_segment(self.segment[-1].position()) 
         
     def move(self):
         #loop that moves the segments
